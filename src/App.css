@@ -8,17 +8,13 @@
   overflow: auto;
 }
 
-.heading {
+.header {
   text-align: center;
   border: 0.5rem double black;
   margin: 0;
 }
 
-header {
-  margin: 1rem;
-}
-
-.card-container {
+.cards-container {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -35,10 +31,9 @@ header {
   align-items: center;
 }
 
-footer {
+.footer {
   text-align: center;
   border: 0.5rem double black;
   padding: 1rem;
   margin: 1rem;
-
 }

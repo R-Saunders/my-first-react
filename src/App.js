@@ -1,33 +1,72 @@
-import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
+
+const movies = [
+  {
+    movieName:"Ghost in the dark",
+    duration: 200,
+    Director:"james cameroon",
+    Cast:["Tom hanks","Tom hardy","Tom hiddelton","Tom Cruise"]
+  },
+  {
+    movieName:"Ghost in the dark2",
+    duration: 201,
+    Director:"james cameroons wife",
+    Cast:["Chris Hemsworth","Chris Evans","Chris Patt","Chris Walken"]
+  }
+
+];
+
+const movie1 = [1,2,3,4];
+
   return (
-    <div className='container'>
 
-      <header>
-        <h1 className='heading'>My first React</h1>
-      </header>
+    <div className="container">
 
-      <main>
-        <div className='card-container'>
-          <div className='card'>
-            This is a card
-          </div>
-          <div className='card'>
-            This is a card
-          </div>
-          <div className='card'>
-            This is a card
-          </div>
-        </div>
+      <div className="header">
+       <h1> V-Commerce </h1>
+      </div>
 
-      </main>
+      <div className="cards-container">
 
-      <footer>
-          Created by Rich
-      </footer>
+        {/* Dynamic Rendering */}
+
+        {/* {movies.map()} */}
+
+        {/* {movies.map( () => {} )} */}
+
+        {/* {movies.map( () => {
+          return();
+        } )} */}
+
+        {/* {movies.map( () => {
+          return(
+            <div className="card">
+            <h1></h1>
+            </div>
+          );
+        } )} */}
+
+        {movies.map( (value) => {
+          return(
+            <div className="card">
+            <h1>{value.movieName}</h1>
+            <h1>{value.duration}</h1>
+            </div>
+          );
+        } )} 
+
+        
+
+      </div>
+
+      <div className="footer">
+       <h1>Done by  V-Commerce </h1>
+      </div>
+      
     </div>
+    
   );
 }
 
