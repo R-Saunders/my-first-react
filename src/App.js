@@ -1,4 +1,6 @@
 import './App.css';
+import React from 'react';
+import Card from './Card';
 
 const App = () => {
 
@@ -18,9 +20,7 @@ const movies = [
 
 ];
 
-const movie1 = [1,2,3,4];
-
-  return (
+  return(
 
     <div className="container">
 
@@ -30,33 +30,13 @@ const movie1 = [1,2,3,4];
 
       <div className="cards-container">
 
-        {/* Dynamic Rendering */}
-
-        {/* {movies.map()} */}
-
-        {/* {movies.map( () => {} )} */}
-
-        {/* {movies.map( () => {
-          return();
-        } )} */}
-
-        {/* {movies.map( () => {
-          return(
-            <div className="card">
-            <h1></h1>
-            </div>
-          );
-        } )} */}
-
         {movies.map( (value) => {
           return(
-            <div className="card">
-            <h1>{value.movieName}</h1>
-            <h1>{value.duration}</h1>
-            </div>
+            <Card data={value}/>
           );
         } )} 
 
+  
         
 
       </div>
