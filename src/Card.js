@@ -15,9 +15,9 @@ const Card = (props) => {
     <h3>{duration}</h3>
     <h4>{director}</h4>
 
-    {cast.map((arg1)=>{
+    {cast.map((arg1, index)=>{
       return(
-        <p>{arg1}</p>
+        <p key={index}>{arg1}</p>
       )
     })}
 

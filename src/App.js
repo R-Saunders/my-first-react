@@ -1,8 +1,15 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
 
 const App = () => {
+
+const [name,setName] = useState('Name State');
+
+const clicked = () => {
+  setName(Math.floor(Math.random() * 100));
+  console.log('Stage Change '+name);
+}
 
 const movies = [
   {
@@ -28,11 +35,11 @@ const movies = [
        <h1> V-Commerce </h1>
       </div>
 
-      <div className="cards-container">
+      <div className="cards-container" onClick={clicked}>
 
-        {movies.map( (value) => {
+        {movies.map( (value, index) => {
           return(
-            <Card data={value}/>
+            <Card key={index} data={value}/>
           );
         } )} 
 
