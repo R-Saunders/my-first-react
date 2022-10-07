@@ -1,10 +1,13 @@
 import './App.css';
 import React, { useState } from 'react';
 import Card from './Card';
+import axios from 'axios';
 
 const App = () => {
 
-const [name,setName] = useState('Name State');
+const [name,setName] = useState([]);
+
+const [api,setApi] = useState([]);
 
 const clicked = () => {
   setName(Math.floor(Math.random() * 100));
@@ -27,6 +30,18 @@ const movies = [
 
 ];
 
+const getAPI = async () => {
+  console.time();
+  const reqAPI = "https://api.sampleapis.com/futurama/episodes";
+  const reqData = await axios.get(reqAPI).then(response =>{
+    return response.data;
+  });
+  setApi(reqData);
+  console.log(api);
+  console.timeEnd();
+}
+
+
   return(
 
     <div className="container">
@@ -47,7 +62,7 @@ const movies = [
         
 
       </div>
-
+      <button onClick={getAPI}>Get API's</button>
       <div className="footer">
        <h1>Done by  V-Commerce </h1>
       </div>
