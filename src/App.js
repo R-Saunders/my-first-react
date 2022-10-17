@@ -41,6 +41,16 @@ const getAPI = async () => {
   console.timeEnd();
 }
 
+const getAPIFromExpress = async () => {
+  const reqAPIFromExpress = "http://localhost:8801/data";
+  const reqDataFromExpress = await axios.get(reqAPIFromExpress).then(response =>{
+    return response.data;
+  });
+  setApi(reqDataFromExpress);
+  console.log(api);
+}
+
+const something = true;
 
   return(
 
@@ -58,11 +68,13 @@ const getAPI = async () => {
           );
         } )} 
 
-  
+        {something && <button>Click me</button>}
         
 
       </div>
       <button onClick={getAPI}>Get API's</button>
+      <button onClick={getAPIFromExpress}>Get API's from Express</button>
+      
       <div className="footer">
        <h1>Done by  V-Commerce </h1>
       </div>
