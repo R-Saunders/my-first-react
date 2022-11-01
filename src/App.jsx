@@ -15,11 +15,10 @@ const App = () => {
 
 	// Get API from Express
 	const getAPI = async () => {
-		const reqAPI = "http://localhost:8011/beasts";
+		const reqAPI = "http://localhost:8011/read";
 		try {
 			const reqData = await axios.get(reqAPI);
 			setApi(reqData.data);
-			console.log(api);
 		} catch (err) {
 			console.log(err);
 		}
@@ -30,8 +29,7 @@ const App = () => {
 		event.preventDefault();
 		// Stage 1: Posting the url
 		const _name = event.target.name.value;
-		const urlToSent = `http://localhost:8011/beast?name=${_name}`;
-		console.log(urlToSent);
+		const urlToSent = `http://localhost:8011/read?name=${_name}`;
 
 		// Stage 2: Fetching the data
 		try {
@@ -56,15 +54,13 @@ const App = () => {
 			mythology: _mythology,
 		};
 
-		console.log(obj);
 
 		// Post the obj
 		try {
-			const dataSubmitting = await axios.post(
-				"http://localhost:8011/beasts",
+			await axios.post(
+				"http://localhost:8011/beasts/create",
 				obj
 			);
-			console.log(dataSubmitting);
 		} catch (error) {
 			console.log(error);
 		}
@@ -82,7 +78,7 @@ const App = () => {
 				{singleAPI.map((value, index) => {
 					return (
 						<div className="card" key={index}>
-							<h3>ID : {value.id}</h3>
+							<h3>ID : {value._id}</h3>
 							<p>Name : {value.name}</p>
 							<p>Mythology: {value.mythology}</p>
 							<p>Heads : {value.heads}</p>
@@ -96,7 +92,7 @@ const App = () => {
 				{api.map((value, index) => {
 					return (
 						<div className="card" key={index}>
-							<h3>ID : {value.id}</h3>
+							<h3>ID : {value._id}</h3>
 							<p>Name : {value.name}</p>
 							<p>Mythology: {value.mythology}</p>
 							<p>Heads : {value.heads}</p>
